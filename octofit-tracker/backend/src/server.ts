@@ -2,7 +2,7 @@ import express from 'express';
 import type { Express, Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import mongoose from 'mongoose';
+import { connectDatabase } from './database';
 import { userRoutes } from './routes/users';
 import { teamRoutes } from './routes/teams';
 import { activityRoutes } from './routes/activities';
@@ -13,7 +13,6 @@ dotenv.config();
 
 const app: Express = express();
 const PORT = process.env.PORT || 8000;
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/octofit_db';
 const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
@@ -24,14 +23,9 @@ app.use(cors());
 app.use(express.json());
 
 // MongoDB Connection
-mongoose.connect(MONGODB_URI, {
-  serverSelectionTimeoutMS: 5000,
-})
-.then(() => {
-  console.log('✓ Connected to MongoDB at', MONGODB_URI);
-})
-.catch((err) => {
-  console.error('✗ MongoDB connection error:', err.message);
+connectDatabase().catch((err) => {
+  console.error('Failed to connect to database:', err);
+  process.exit(1);
 });
 
 // Health Check
@@ -70,5 +64,4 @@ app.get('/', (req: Request, res: Response) => {
 app.listen(PORT, () => {
   console.log(`✓ Server is running on port ${PORT}`);
   console.log(`✓ Base URL: ${baseUrl}`);
-  console.log(`✓ MongoDB URI: ${MONGODB_URI}`);
 });
