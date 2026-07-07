@@ -1,6 +1,10 @@
 import { useState, useEffect } from 'react';
 import { apiEndpoint, apiFetch } from '../config/api';
 
+/**
+ * Activities Component
+ * API Endpoint: https://{CODESPACE_NAME}-8000.app.github.dev/api/activities
+ */
 export default function Activities() {
   const [activities, setActivities] = useState([]);
   const [loading, setLoading] = useState(true);
