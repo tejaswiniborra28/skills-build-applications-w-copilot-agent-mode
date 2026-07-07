@@ -1,7 +1,7 @@
 import express, { Router } from 'express';
 import type { Request, Response } from 'express';
 import mongoose from 'mongoose';
-import { Workout } from '../models/Workout';
+import { Workout } from '../models/Workout.js';
 
 export const workoutRoutes: Router = express.Router();
 

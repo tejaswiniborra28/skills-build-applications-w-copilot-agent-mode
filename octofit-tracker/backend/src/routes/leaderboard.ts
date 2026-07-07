@@ -1,7 +1,7 @@
 import express, { Router } from 'express';
 import type { Request, Response } from 'express';
 import mongoose from 'mongoose';
-import { Leaderboard } from '../models/Leaderboard';
+import { Leaderboard } from '../models/Leaderboard.js';
 
 export const leaderboardRoutes: Router = express.Router();
 

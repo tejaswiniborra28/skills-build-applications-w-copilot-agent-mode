@@ -1,6 +1,6 @@
 import express, { Router } from 'express';
 import type { Request, Response } from 'express';
-import { Team } from '../models/Team';
+import { Team } from '../models/Team.js';
 
 export const teamRoutes: Router = express.Router();
 

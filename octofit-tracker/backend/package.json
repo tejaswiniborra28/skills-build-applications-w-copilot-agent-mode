@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/server.ts",
+    "dev": "npm run build && nodemon --watch src --exec node dist/server.js",
     "build": "tsc",
     "start": "node dist/server.js",
     "seed": "node seed-runner.cjs",

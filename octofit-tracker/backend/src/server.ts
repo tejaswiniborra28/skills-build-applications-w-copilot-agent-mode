@@ -2,12 +2,12 @@ import express from 'express';
 import type { Express, Request, Response } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import { connectDatabase } from './config/database';
-import { userRoutes } from './routes/users';
-import { teamRoutes } from './routes/teams';
-import { activityRoutes } from './routes/activities';
-import { leaderboardRoutes } from './routes/leaderboard';
-import { workoutRoutes } from './routes/workouts';
+import { connectDatabase } from './config/database.js';
+import { userRoutes } from './routes/users.js';
+import { teamRoutes } from './routes/teams.js';
+import { activityRoutes } from './routes/activities.js';
+import { leaderboardRoutes } from './routes/leaderboard.js';
+import { workoutRoutes } from './routes/workouts.js';
 
 dotenv.config();
 
