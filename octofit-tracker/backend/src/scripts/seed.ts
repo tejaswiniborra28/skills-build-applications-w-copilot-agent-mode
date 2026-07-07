@@ -1,5 +1,7 @@
 /**
- * OctoFit Tracker Database Seeding
+ * OctoFit Tracker Database Seeding Script
+ * 
+ * Seed the octofit_db database with test data
  * 
  * This file documents the test data seed for the octofit_db database.
  * Run with: npm run seed
@@ -23,12 +25,12 @@
 
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import { connectDatabase } from './database';
-import { User } from './models/User';
-import { Team } from './models/Team';
-import { Activity } from './models/Activity';
-import { Leaderboard } from './models/Leaderboard';
-import { Workout } from './models/Workout';
+import { connectDatabase } from '../config/database';
+import { User } from '../models/User';
+import { Team } from '../models/Team';
+import { Activity } from '../models/Activity';
+import { Leaderboard } from '../models/Leaderboard';
+import { Workout } from '../models/Workout';
 
 dotenv.config();
 
